@@ -12,4 +12,7 @@ float henyeyGreenstein(float g, float angle) {
   return front * back;
 }
 
+// add sphere raymarch
+//add inscatering
+//add outscattering
 
