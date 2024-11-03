@@ -1,7 +1,7 @@
 #define MAX_STEPS 10
 #define ALLOWED_DEVIATION 0.01
-#earthSize 6400.0
-#atmoThickness 100.0
+#define earthSize 6400.0
+#define atmoThickness 100.0
 
 float cos2(float theta){
   return (cos(2.0 * theta)+  1.0) / 2.0;
