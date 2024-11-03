@@ -1,7 +1,10 @@
+#define PI 3.14159265359
+
 #define MAX_STEPS 10
 #define ALLOWED_DEVIATION 0.01
 #define earthSize 6400000.0
 #define atmoThickness 100000.0
+#define atmoAvgHeight 0.25
 
 float cos2(float theta){
   return (cos(2.0 * theta)+  1.0) / 2.0;
@@ -40,7 +43,14 @@ float henyeyGreenstein(float g, float angle) {
   return front * back;
 }
 
-// add sphere raymarch
+//pos is vec3(0.0, playerY, 0.0);
+//rayLength is the result of the spheremarch
+//lambda is the wavelength of the current scatter channel
+//k is the scattering channel
+float outScattering(float raylength, float lambda, float k, float pos){
+  float front = 4 * pi * pow(lambda, -k);
+}
+
 //add inscatering
 //add outscattering
 
