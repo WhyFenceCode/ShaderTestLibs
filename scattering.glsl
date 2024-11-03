@@ -47,7 +47,7 @@ float henyeyGreenstein(float g, float angle) {
 //lambda is the wavelength of the current scatter channel
 //k is the scattering channel
 float outScattering(float rayLength, float lambda, float k){
-  return 4 * pi * pow(lambda, -k) * rayLength;
+  return 4 * PI * pow(lambda, -k) * rayLength;
 }
 
 //add inscatering
