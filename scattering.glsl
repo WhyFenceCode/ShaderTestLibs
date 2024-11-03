@@ -12,7 +12,7 @@ float lengthVec(vec3 p1, vec3 p2){
 }
 
 float distanceToCircle(vec3 p, vec3 center, float r){
-  return lengthVec(p, center) - r;
+  return -lengthVec(p, center) - r;
 }
 
 //pos is vec3(0.0, playerY, 0.0);
