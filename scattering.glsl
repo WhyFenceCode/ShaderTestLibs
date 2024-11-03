@@ -2,9 +2,9 @@
 
 #define MAX_STEPS 10
 #define ALLOWED_DEVIATION 0.01
-#define earthSize 6400000.0
-#define atmoThickness 100000.0
-#define atmoAvgHeight 0.25
+#define EARTHSIZE 6400000.0
+#define ATMOTHICKNESS 100000.0
+#define ATMOAVGHEIGHT 0.25
 
 float cos2(float theta){
   return (cos(2.0 * theta)+  1.0) / 2.0;
@@ -27,7 +27,7 @@ float sphereMarch(vec3 pos, vec3 dir){
   for(int i=0; i < MAX_STEPS; ++i)
   {
     samplePoint = pos + dir * progress;
-    float distance = distanceToCircle(samplePoint, vec3(0.0, -earthSize, 0.0), atmoThickness);
+    float distance = distanceToCircle(samplePoint, vec3(0.0, -EARTHSIZE, 0.0), ATMOTHICKNESS);
     progress += distance;
     if(distance < ALLOWED_DEVIATION){
       return progress;
@@ -47,8 +47,10 @@ float henyeyGreenstein(float g, float angle) {
 //rayLength is the result of the spheremarch
 //lambda is the wavelength of the current scatter channel
 //k is the scattering channel
-float outScattering(float raylength, float lambda, float k, float pos){
+float outScattering(float rayLength, float lambda, float k, float pos){
   float front = 4 * pi * pow(lambda, -k);
+  floar back = rayLength * exp(-(pos.y/ATMOTHICKNESS)/ATMOAVGHEIGHT);
+  return front * back;
 }
 
 //add inscatering
