@@ -3,7 +3,11 @@ float cos2(float theta){
 }
 
 float length(vec3 p1, vec3 p2){
-  return distance(p1, p2)
+  return distance(p1, p2);
+}
+
+float distanceToCircle(vec3 p, vec3 center, float r){
+  return length(p, center) - r;
 }
 
 float henyeyGreenstein(float g, float angle) {
