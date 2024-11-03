@@ -43,14 +43,11 @@ float henyeyGreenstein(float g, float angle) {
   return front * back;
 }
 
-//pos is vec3(0.0, playerY, 0.0);
 //rayLength is the result of the spheremarch
 //lambda is the wavelength of the current scatter channel
 //k is the scattering channel
-float outScattering(float rayLength, float lambda, float k, float pos){
-  float front = 4 * pi * pow(lambda, -k);
-  floar back = rayLength * exp(-(pos.y/ATMOTHICKNESS)/ATMOAVGHEIGHT);
-  return front * back;
+float outScattering(float rayLength, float lambda, float k){
+  return 4 * pi * pow(lambda, -k) * rayLength;
 }
 
 //add inscatering
