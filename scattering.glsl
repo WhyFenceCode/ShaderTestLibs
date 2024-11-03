@@ -46,9 +46,9 @@ float henyeyGreenstein(float g, float angle) {
 //rayLength is the result of the spheremarch
 //lambda is the wavelength of the current scatter channel
 //k is the scattering channel
-float outScattering(float startPoint, float rayLength, float lambda, float k){
+float outScattering(float rayLength, float lambda, float k){
   float front =  4 * PI * pow(lambda, -k);
-  float back = ATMOAVGHEIGHT * (exp(-startPoint/ATMOAVGHEIGHT) - exp(-rayLength/ATMOAVGHEIGHT);
+  float back = ATMOAVGHEIGHT * (exp(-0/ATMOAVGHEIGHT) - exp(-rayLength/ATMOAVGHEIGHT);
   return front*back
 }
 
